@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epic Games Beta Program</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --epic-black: #121212;
+      --epic-blue: #0074e4;
+      --epic-blue-hover: #0068cc;
+      --epic-gray: #2a2a2a;
+      --epic-light-gray: #e9e9e9;
+      --epic-white: #ffffff;
+      --epic-accent: #ff8800;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .container {
+      background-color: var(--epic-white);
+      max-width: 650px;
+      width: 90%;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--epic-blue) 0%, var(--epic-accent) 100%);
+    }
+    
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .logo img {
+      width: 140px;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+      transition: transform 0.3s ease;
+    }
+    
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+    
+    h1 {
+      color: var(--epic-black);
+      font-size: 28px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+      line-height: 1.3;
+      position: relative;
+    }
+    
+    h1::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--epic-blue);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+    
+    p {
+      color: #444;
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    
+    strong {
+      color: var(--epic-black);
+      font-weight: 600;
+    }
+    
+    .highlight {
+      background: linear-gradient(to right, rgba(0,116,228,0.08), rgba(0,116,228,0.03));
+      padding: 20px;
+      border-left: 4px solid var(--epic-blue);
+      margin: 25px 0;
+      border-radius: 0 8px 8px 0;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .highlight::before {
+      content: '🎮';
+      font-size: 24px;
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: var(--epic-white);
+      padding: 0 10px;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .btn {
+      display: inline-block;
+      width: auto;
+      margin: 25px auto;
+      padding: 14px 30px;
+      background: linear-gradient(to right, var(--epic-blue), #0088ff);
+      color: var(--epic-white);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,116,228,0.3);
+      position: relative;
+      overflow: hidden;
+      border: none;
+      cursor: pointer;
+      display: block;
+      max-width: 300px;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,116,228,0.4);
+      background: linear-gradient(to right, #0068cc, #0074e4);
+    }
+    
+    .btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 10px rgba(0,116,228,0.3);
+    }
+    
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background: rgba(255,255,255,0.5);
+      opacity: 0;
+      border-radius: 100%;
+      transform: scale(1, 1) translate(-50%);
+      transform-origin: 50% 50%;
+    }
+    
+    .btn:focus:not(:active)::after {
+      animation: ripple 1s ease-out;
+    }
+    
+    @keyframes ripple {
+      0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(20, 20);
+        opacity: 0;
+      }
+    }
+    
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      font-size: 13px;
+      color: #777;
+      text-align: center;
+      border-top: 1px solid var(--epic-light-gray);
+    }
+    
+    .signature {
+      margin: 30px 0;
+      padding-left: 15px;
+      border-left: 3px solid var(--epic-accent);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 20px;
+        margin: 20px auto;
+      }
+      
+      h1 {
+        font-size: 24px;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: none;
+      }
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .container {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg" alt="Epic Games Logo">
+    </div>
+    
+    <h1>You're In! Welcome to the Epic Games Beta Program</h1>
+    
+    <p>Dear Gamer,</p>
+    
+    <p>We're excited to inform you that you have been <strong>officially selected</strong> to participate in the upcoming <strong>Epic Games Beta Testing Program</strong>.</p>
+    
+    <div class="highlight">
+      Your access includes early testing for upcoming titles, experimental features, and unreleased tools across Epic platforms.
+    </div>
+    
+    <p>This is a limited-access program, and you were selected based on your engagement, gaming profile, and community reputation. As a beta tester, you'll play a key role in shaping the future of gaming with Epic.</p>
+    
+    <p>Please click the button below to review your welcome pack and next steps:</p>
+    
+    <a href="https://images.squarespace-cdn.com/content/v1/590eeff5b8a79b2147a783be/1588488989531-R2NZREZAITBT0VOIB3LE/EWzkIq3XYAAnHSp.jpg" class="btn">View Beta Tester Dashboard</a>
+    
+    <p>If you believe you received this email by mistake, no action is needed. But if you're ready to step into the future — we're glad to have you onboard.</p>
+    
+    <div class="signature">
+      <p>Sincerely,<br><strong>Epic Games Beta Team</strong></p>
+    </div>
+    
+    <div class="footer">
+      Epic Games, Inc. © 2025<br>
+      All trademarks are the property of their respective owners.
+    </div>
+  </div>
+</body>
+</html>
