@@ -1,0 +1,93 @@
+/* Custom styles for the Unlayer email editor */
+
+/* Customize the editor toolbar */
+.unlayer-editor-toolbar {
+    background-color: #f8f9fa !important;
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
+/* Customize the property panel */
+.unlayer-property-panel {
+    background-color: #f8f9fa !important;
+    border-left: 1px solid #dee2e6 !important;
+}
+
+/* Customize buttons in the editor */
+.unlayer-button {
+    background-color: #4a6cf7 !important;
+    border-color: #4a6cf7 !important;
+}
+
+.unlayer-button:hover {
+    background-color: #3a56d4 !important;
+    border-color: #3a56d4 !important;
+}
+
+/* Customize the editor canvas */
+.unlayer-canvas {
+    background-color: #f5f7fa !important;
+}
+
+/* Customize the selected element highlight */
+.unlayer-selected {
+    border-color: #4a6cf7 !important;
+}
+
+/* Customize the tabs in property panel */
+.unlayer-tabs {
+    background-color: #ffffff !important;
+}
+
+.unlayer-tab.unlayer-active {
+    color: #4a6cf7 !important;
+    border-bottom-color: #4a6cf7 !important;
+}
+
+/* Customize input fields */
+.unlayer-input {
+    border: 1px solid #dee2e6 !important;
+    border-radius: 4px !important;
+}
+
+.unlayer-input:focus {
+    border-color: #4a6cf7 !important;
+    box-shadow: 0 0 0 0.2rem rgba(74, 108, 247, 0.25) !important;
+}
+
+/* Customize color picker */
+.unlayer-color-picker-preview {
+    border: 1px solid #dee2e6 !important;
+    border-radius: 4px !important;
+}
+
+/* Customize dropdown menus */
+.unlayer-dropdown-menu {
+    border: 1px solid #dee2e6 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Customize tooltips */
+.unlayer-tooltip {
+    background-color: #212529 !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+}
+
+/* Customize scrollbars */
+.unlayer-scrollbar::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+.unlayer-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1 !important;
+}
+
+.unlayer-scrollbar::-webkit-scrollbar-thumb {
+    background: #c1c1c1 !important;
+    border-radius: 4px !important;
+}
+
+.unlayer-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8 !important;
+}

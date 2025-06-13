@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200" fill="none">
+  <!-- Background -->
+  <rect width="300" height="200" fill="#F0F4FF" />
+  
+  <!-- Email template preview -->
+  <rect x="50" y="20" width="200" height="160" rx="4" fill="white" stroke="#4A6CF7" stroke-width="1" />
+  
+  <!-- Header -->
+  <rect x="50" y="20" width="200" height="40" rx="4" fill="#4A6CF7" />
+  <circle cx="70" cy="40" r="10" fill="white" />
+  <rect x="90" y="35" width="80" height="10" rx="5" fill="white" />
+  
+  <!-- Content -->
+  <rect x="60" y="70" width="180" height="15" rx="2" fill="#E0E8FF" />
+  <rect x="60" y="90" width="140" height="10" rx="2" fill="#E0E8FF" />
+  <rect x="60" y="105" width="160" height="10" rx="2" fill="#E0E8FF" />
+  <rect x="60" y="120" width="130" height="10" rx="2" fill="#E0E8FF" />
+  
+  <!-- Button -->
+  <rect x="60" y="140" width="80" height="20" rx="10" fill="#4A6CF7" />
+  <rect x="75" y="145" width="50" height="10" rx="5" fill="white" />
+  
+  <!-- Newsletter label -->
+  <rect x="0" y="0" width="100" height="30" rx="0 0 15 0" fill="#4A6CF7" />
+  <text x="10" y="20" font-family="Arial" font-size="12" fill="white">NEWSLETTER</text>
+</svg>

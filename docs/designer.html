@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Designer - MailCommit</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Unlayer Email Editor CSS -->
+    <link rel="stylesheet" href="https://editor.unlayer.com/embed.css">
+    <style>
+        .editor-container {
+            width: 100%;
+            height: calc(100vh - 150px);
+            min-height: 600px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .controls button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MailCommit</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="designer.html" class="active">Designer</a></li>
+                    <li><a href="templates.html">Templates</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="designer-section">
+            <div class="container">
+                <h2>Email Template Designer</h2>
+                <p>Design your email template using our visual editor. Drag and drop elements to create your perfect email.</p>
+                
+                <div class="controls">
+                    <div>
+                        <button id="loadTemplate" class="btn">Load Template</button>
+                        <select id="templateSelector" class="select">
+                            <option value="blank">Blank Template</option>
+                            <option value="newsletter">Newsletter</option>
+                            <option value="promotion">Promotion</option>
+                            <option value="announcement">Announcement</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button id="saveDesign" class="btn">Save Design</button>
+                        <button id="exportHTML" class="btn btn-primary">Export HTML</button>
+                    </div>
+                </div>
+                
+                <div id="editor" class="editor-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 MailCommit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Unlayer Email Editor JS -->
+    <script src="https://editor.unlayer.com/embed.js"></script>
+    <script>
+        // Initialize the editor
+        let editor;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the editor
+            editor = unlayer.createEditor({
+                id: 'editor',
+                displayMode: 'email',
+                projectId: 1, // Replace with your Unlayer project ID if you have one
+                customJS: [
+                    window.location.protocol + '//' + window.location.host + '/js/custom.js'
+                ],
+                customCSS: [
+                    window.location.protocol + '//' + window.location.host + '/css/custom-editor.css'
+                ],
+                appearance: {
+                    theme: 'light',
+                    panels: {
+                        tools: {
+                            dock: 'left'
+                        }
+                    }
+                },
+                tools: {
+                    // Configure the tools as needed
+                }
+            });
+
+            // Load template button
+            document.getElementById('loadTemplate').addEventListener('click', function() {
+                const templateId = document.getElementById('templateSelector').value;
+                loadTemplate(templateId);
+            });
+
+            // Save design button
+            document.getElementById('saveDesign').addEventListener('click', function() {
+                editor.saveDesign(function(design) {
+                    // Save the design JSON to localStorage or your backend
+                    localStorage.setItem('emailDesign', JSON.stringify(design));
+                    alert('Design saved successfully!');
+                });
+            });
+
+            // Export HTML button
+            document.getElementById('exportHTML').addEventListener('click', function() {
+                editor.exportHtml(function(data) {
+                    const { design, html } = data;
+                    // Create a download link for the HTML
+                    const blob = new Blob([html], { type: 'text/html' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'email-template.html';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                });
+            });
+
+            // Try to load a saved design if it exists
+            const savedDesign = localStorage.getItem('emailDesign');
+            if (savedDesign) {
+                try {
+                    editor.loadDesign(JSON.parse(savedDesign));
+                } catch (e) {
+                    console.error('Failed to load saved design:', e);
+                }
+            }
+        });
+
+        // Function to load a template
+        function loadTemplate(templateId) {
+            // In a real application, you would fetch templates from your server
+            const templates = {
+                blank: { body: { rows: [] } },
+                newsletter: {
+                    // Sample newsletter template design JSON
+                    // This would be replaced with actual template designs
+                    body: {
+                        rows: [
+                            {
+                                cells: [1],
+                                columns: [
+                                    {
+                                        contents: [
+                                            {
+                                                type: "text",
+                                                values: {
+                                                    text: "<p style=\"font-size: 24px; text-align: center;\">Newsletter Template</p>"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                promotion: {
+                    // Sample promotion template
+                    body: {
+                        rows: [
+                            {
+                                cells: [1],
+                                columns: [
+                                    {
+                                        contents: [
+                                            {
+                                                type: "text",
+                                                values: {
+                                                    text: "<p style=\"font-size: 24px; text-align: center;\">Promotion Template</p>"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                announcement: {
+                    // Sample announcement template
+                    body: {
+                        rows: [
+                            {
+                                cells: [1],
+                                columns: [
+                                    {
+                                        contents: [
+                                            {
+                                                type: "text",
+                                                values: {
+                                                    text: "<p style=\"font-size: 24px; text-align: center;\">Announcement Template</p>"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            };
+
+            if (templates[templateId]) {
+                editor.loadDesign(templates[templateId]);
+            }
+        }
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

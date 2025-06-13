@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200" fill="none">
+  <!-- Background -->
+  <rect width="300" height="200" fill="#F0F4FF" />
+  
+  <!-- Email template preview -->
+  <rect x="50" y="20" width="200" height="160" rx="4" fill="white" stroke="#4A6CF7" stroke-width="1" />
+  
+  <!-- Header with logo -->
+  <rect x="50" y="20" width="200" height="40" rx="4" fill="#4A6CF7" />
+  <circle cx="70" cy="40" r="10" fill="white" />
+  <rect x="90" y="35" width="80" height="10" rx="5" fill="white" />
+  
+  <!-- Event banner -->
+  <rect x="60" y="70" width="180" height="50" rx="4" fill="#E0E8FF" />
+  <rect x="80" y="85" width="140" height="20" rx="4" fill="#4A6CF7" opacity="0.7" />
+  
+  <!-- Event details -->
+  <rect x="60" y="130" width="50" height="40" rx="4" fill="#4A6CF7" opacity="0.2" />
+  <rect x="65" y="135" width="40" height="15" rx="2" fill="#4A6CF7" />
+  <rect x="65" y="155" width="40" height="10" rx="2" fill="#4A6CF7" opacity="0.7" />
+  
+  <!-- Event info -->
+  <rect x="120" y="130" width="120" height="10" rx="2" fill="#E0E8FF" />
+  <rect x="120" y="145" width="100" height="10" rx="2" fill="#E0E8FF" />
+  <rect x="120" y="160" width="110" height="10" rx="2" fill="#E0E8FF" />
+  
+  <!-- Calendar icon in date box -->
+  <rect x="70" y="140" width="10" height="10" rx="1" stroke="white" stroke-width="1" fill="none" />
+  <path d="M70 143 L80 143" stroke="white" stroke-width="1" />
+  <path d="M72 140 L72 138" stroke="white" stroke-width="1" />
+  <path d="M78 140 L78 138" stroke="white" stroke-width="1" />
+  
+  <!-- Event label -->
+  <rect x="0" y="0" width="70" height="30" rx="0 0 15 0" fill="#4A6CF7" />
+  <text x="10" y="20" font-family="Arial" font-size="12" fill="white">EVENT</text>
+</svg>

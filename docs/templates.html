@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Templates - MailCommit</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MailCommit</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="designer.html">Designer</a></li>
+                    <li><a href="templates.html" class="active">Templates</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="templates-section">
+            <div class="container">
+                <h2>Email Templates</h2>
+                <p>Choose from our collection of professionally designed email templates to get started quickly.</p>
+                
+                <div class="template-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="newsletter">Newsletter</button>
+                    <button class="filter-btn" data-filter="promotion">Promotion</button>
+                    <button class="filter-btn" data-filter="announcement">Announcement</button>
+                    <button class="filter-btn" data-filter="event">Event</button>
+                </div>
+                
+                <div class="template-grid">
+                    <!-- Newsletter Templates -->
+                    <div class="template-card" data-category="newsletter">
+                        <div class="template-preview">
+                            <img src="images/templates/newsletter-1.jpg" alt="Newsletter Template 1">
+                        </div>
+                        <div class="template-info">
+                            <h3>Basic Newsletter</h3>
+                            <p>A simple and clean newsletter template for regular updates.</p>
+                            <a href="designer.html?template=newsletter-1" class="btn btn-primary">Use Template</a>
+                        </div>
+                    </div>
+                    
+                    <div class="template-card" data-category="newsletter">
+                        <div class="template-preview">
+                            <img src="images/templates/newsletter-2.jpg" alt="Newsletter Template 2">
+                        </div>
+                        <div class="template-info">
+                            <h3>Modern Newsletter</h3>
+                            <p>A modern design with multiple columns and image sections.</p>
+                            <a href="designer.html?template=newsletter-2" class="btn btn-primary">Use Template</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Promotion Templates -->
+                    <div class="template-card" data-category="promotion">
+                        <div class="template-preview">
+                            <img src="images/templates/promotion-1.jpg" alt="Promotion Template 1">
+                        </div>
+                        <div class="template-info">
+                            <h3>Sale Announcement</h3>
+                            <p>Perfect for announcing sales and special offers.</p>
+                            <a href="designer.html?template=promotion-1" class="btn btn-primary">Use Template</a>
+                        </div>
+                    </div>
+                    
+                    <div class="template-card" data-category="promotion">
+                        <div class="template-preview">
+                            <img src="images/templates/promotion-2.jpg" alt="Promotion Template 2">
+                        </div>
+                        <div class="template-info">
+                            <h3>Product Launch</h3>
+                            <p>Designed for showcasing new product launches.</p>
+                            <a href="designer.html?template=promotion-2" class="btn btn-primary">Use Template</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Announcement Templates -->
+                    <div class="template-card" data-category="announcement">
+                        <div class="template-preview">
+                            <img src="images/templates/announcement-1.jpg" alt="Announcement Template 1">
+                        </div>
+                        <div class="template-info">
+                            <h3>Company Update</h3>
+                            <p>Share important company news and updates.</p>
+                            <a href="designer.html?template=announcement-1" class="btn btn-primary">Use Template</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Event Templates -->
+                    <div class="template-card" data-category="event">
+                        <div class="template-preview">
+                            <img src="images/templates/event-1.jpg" alt="Event Template 1">
+                        </div>
+                        <div class="template-info">
+                            <h3>Event Invitation</h3>
+                            <p>Invite your audience to upcoming events with this template.</p>
+                            <a href="designer.html?template=event-1" class="btn btn-primary">Use Template</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 MailCommit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Template filtering functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const templateCards = document.querySelectorAll('.template-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Show/hide templates based on filter
+                    templateCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
